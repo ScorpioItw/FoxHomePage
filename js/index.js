@@ -7,7 +7,7 @@ var maxWidth = getComputedStyle(root).getPropertyValue("--max-width");
 // console.log(maxWidth);
 
 var fixedHeight = document.body.clientHeight;
-console.log(fixedHeight);
+// console.log(fixedHeight);
 
 var base = document.querySelector('#base');
 
@@ -65,8 +65,8 @@ function getKey() {
     }
 }
 
-var hour = document.querySelector('.timeText').getElementsByTagName('span')[0];
-var minutes = document.querySelector('.timeText').getElementsByTagName('span')[1];
+var timeText = document.querySelector('.timeText');
+
 
 setInterval("showTime()", 1000);
 
@@ -88,8 +88,8 @@ showTime = function () {
         s = "0" + s;
     }
 
-    hour.innerText = h;
-    minutes.innerText = m;
+    timeText.innerText = h + ":" + m;
+    // console.log(timeText.innerText);
 }
 // 美文部分
 var str;
