@@ -270,11 +270,11 @@ body {
     perspective: 5px;
 }
 
-.text:hover {
-    /* background-color: rgb(255 255 255 / 20%); */
-    /* backdrop-filter: blur(10px); */
-    /* transform: rotateX(-1deg) translateX(-50%); */
-}
+/* .text:hover {
+    background-color: rgb(255 255 255 / 20%);
+    backdrop-filter: blur(10px);
+    transform: rotateX(-1deg) translateX(-50%);
+} */
 
 .text li {
     list-style: none;
