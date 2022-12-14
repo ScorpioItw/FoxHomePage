@@ -11,7 +11,7 @@ var fixedHeight = document.body.clientHeight;
 
 var base = document.querySelector('#base');
 
-// base.style.height = fixedHeight + 'px';
+base.style.height = fixedHeight + 'px';
 
 // window.onresize = function () {
 //     var vw = window.innerWidth;
