@@ -296,6 +296,7 @@ body {
     margin-right: 10%;
     display: none;
     flex-shrink: 100;
+    /* 动态计算字体大小 */
     font-size: clamp(0.3rem, 0.6rem, 0.9rem);
     pointer-events: none;
     min-width: 30%;
