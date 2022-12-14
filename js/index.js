@@ -108,8 +108,8 @@ var text = document.querySelector('.text');
 var textName = document.querySelector('.text-name');
 var textP = document.querySelector('.text-p');
 if (getStr[0].length <= 20 && getStr[1].length <= 20) {
-    textP.innerHTML = '「 ' + getStr[0] + ' 」';
-    textName.innerHTML = '——' + getStr[1];
+    textP.innerText = '「 ' + getStr[0] + ' 」';
+    textName.innerText = '——' + getStr[1];
 }
 
 text.ontouchstart = function () {
