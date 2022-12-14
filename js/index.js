@@ -118,6 +118,9 @@ text.ontouchstart = function () {
 
 text.onmousemove = function () {
     textName.style.display = 'block';
+    text.style.backgroundColor = 'rgb(255 255 255 / 20%)';
+    text.style.backdropFilter = 'blur(10px)';
+    text.style.transform = 'rotateX(-1deg) translateX(-50%)';
 }
 
 text.ontouchend = function () {
@@ -126,6 +129,8 @@ text.ontouchend = function () {
 
 text.onmouseout = function () {
     textName.style.display = 'none';
+    text.style.backgroundColor = 'transparent';
+    text.style.backdropFilter = 'blur(0px)';
 }
 
 
