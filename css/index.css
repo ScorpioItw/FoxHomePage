@@ -283,8 +283,9 @@ body {
 .text-p {
     text-align: center;
     flex-shrink: 1;
-    font-size: 5%;
+    font-size: clamp(0.3rem, 0.9rem, 1rem);
     pointer-events: none;
+    max-width: 100%;
     min-width: 30%;
     font-family: OS;
 }
@@ -296,8 +297,9 @@ body {
     margin-right: 10%;
     display: none;
     flex-shrink: 100;
-    font-size: 5%;
+    font-size: clamp(0.3rem, 0.9rem, 1rem);
     pointer-events: none;
+    max-width: 100%;
     min-width: 30%;
     font-family: OS;
 }
