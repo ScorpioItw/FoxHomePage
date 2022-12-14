@@ -20,6 +20,11 @@ base.style.height = fixedHeight + 'px';
 //     base.style.height = hrt;
 // }
 
+document.addEventListener('contextmenu', function (e) {
+    // 禁选右键菜单
+    e.preventDefault();
+})
+
 
 var bg = document.querySelector('.bg');
 // console.log(bg);
