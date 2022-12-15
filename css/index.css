@@ -27,6 +27,7 @@
     --max-width: 500px;
     --max-hight: 100px;
     --max-top: 120px;
+    --bg-color: #2c2c2c;
 }
 
 body {
@@ -49,8 +50,8 @@ body {
 .bg {
     width: 100%;
     height: 100%;
-    /* background: url('../img/index.jpg') center center no-repeat; */
-    background: url('https://bing.img.run/uhd.php') center center no-repeat;
+    background: url('../img/index.jpg') center center no-repeat;
+    /* background: url('https://bing.img.run/uhd.php') center center no-repeat; */
     background-size: cover;
     z-index: -1;
     position: absolute;
@@ -85,7 +86,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 1s cubic-bezier(0.01, 0.03, 0, 0.6);
     animation: tip 7s;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.tip:hover {
+    transform: translateY(60px) translateX(-50%);
 }
 
 .tip span {
@@ -219,6 +227,7 @@ body {
 }
 
 .search_bar {
+    /* 搜索盒子样式 */
     position: fixed;
     top: calc(var(--max-top) + 80px);
     width: 230px;
@@ -238,6 +247,7 @@ body {
 }
 
 .search_bar input {
+    /* 搜索样式 */
     outline: 0;
     border: none;
     width: 100%;
@@ -248,6 +258,16 @@ body {
     text-align: center;
 }
 
+.search_logo {
+    /* 搜索logo样式 */
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    display: none;
+}
+
 .text {
     width: calc(var(--max-width) - 50px);
     height: var(--max-hight);
@@ -256,7 +276,7 @@ body {
     left: 50%;
     border-radius: 25px;
     transform: translateX(-50%);
-    text-shadow: 0 0 20px rgb(0, 0, 0, 80%);
+
     color: #fff;
     font-size: small;
     border-radius: 25px;
@@ -278,6 +298,7 @@ body {
     text-align: center;
     flex-shrink: 1;
     font-size: clamp(0.3rem, 0.6rem, 0.9rem);
+    text-shadow: 0 0 20px rgb(0, 0, 0, 80%);
     pointer-events: none;
     min-width: 30%;
     font-family: OS;
@@ -292,7 +313,87 @@ body {
     flex-shrink: 100;
     /* 动态计算字体大小 */
     font-size: clamp(0.3rem, 0.6rem, 0.9rem);
+    text-shadow: 0 0 20px rgb(0, 0, 0, 80%);
     pointer-events: none;
     min-width: 30%;
     font-family: OS;
+}
+
+.text-options {
+    width: calc(var(--max-width) / 20);
+    height: calc(var(--max-width) / 20);
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    display: none;
+    display: none;
+}
+
+.text-options-box {
+    width: 70px;
+    height: 100px;
+    background-color: #fff;
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    border-radius: 5px;
+    animation: text-options-box 0.4s;
+    display: none;
+}
+
+.text-options-box li {
+    width: 60%;
+    display: block;
+    text-align: center;
+    list-style: none;
+    color: #2c2c2c;
+    /* background-color: aqua; */
+    margin: 15px 0;
+    padding: 5px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #2c2c2c;
+    border-radius: 5px;
+}
+
+.text-options-box li::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    background-color: aqua;
+    transition-property: transform, color;
+    transition-duration: 0.3s;
+    transform: scaleX(0);
+}
+
+.text-options-box li:hover::after {
+    transform: scaleX(1);
+}
+
+.text-options-box li:active::after {
+    background-color: red;
+}
+
+
+
+.text-options-box li:hover {
+    color: var(--bg-color);
+}
+
+
+@keyframes text-options-box {
+    0% {
+        transform: scale(.5);
+        transform-origin: top right
+    }
+
+    100% {
+        transform: scale(1);
+        transform-origin: top right
+    }
 }
