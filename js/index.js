@@ -172,10 +172,6 @@ setTimeout(function () {
 
 var textOptions = document.querySelector('.text-options');  // 获取美文选项按钮
 
-// text.ontouchstart = function () {
-//     textName.style.display = 'block';
-//     textOptions.style.display = 'block';
-// }
 
 text.onmousemove = function () {
     textName.style.display = 'block';
@@ -185,12 +181,7 @@ text.onmousemove = function () {
     textOptions.style.display = 'block';
 }
 
-// text.ontouchend = function () {
-//     textName.style.display = 'none';
-//     textOptions.style.display = 'none';
-// }
-
-text.onmouseout = function () {
+text.onmouseout = function () {     // 美文鼠标离开事件
     textName.style.display = 'none';
     text.style.backgroundColor = 'transparent';
     text.style.backdropFilter = 'blur(0px)';
@@ -200,8 +191,9 @@ text.onmouseout = function () {
 var textOptionsBox = document.querySelector('.text-options-box');
 
 
-textOptions.addEventListener('click', function () {
+textOptions.addEventListener('click', function (e) {    // 美文功能按钮点击事件
     textOptionsBox.style.display = 'block';
+    e.stopPropagation();    // 阻止事件冒泡
 
 });
 
@@ -209,12 +201,12 @@ var textOptionsBoxLi = document.querySelector('.text-options-box').getElementsBy
 textOptionsBoxLi.style.pointerEvents = 'none';
 
 
-setTimeout(function () {
+setTimeout(function () {        // 2秒后解除对复制的禁用
     textOptionsBoxLi.style.pointerEvents = 'all';
 }, 2000)
 
 
-textOptionsBox.addEventListener('click', function (e) {
+textOptionsBox.addEventListener('click', function (e) {     // 美文功能盒子点击事件
     if (e.target.nodeName == 'LI') {
         if (e.target.className == 'copy') {
             var copyText = textP.innerText + textName.innerText;
@@ -227,7 +219,7 @@ textOptionsBox.addEventListener('click', function (e) {
     }
 })
 
-textOptionsBox.addEventListener('mouseover', function (e) {
+textOptionsBox.addEventListener('mouseover', function (e) {     // 美文功能盒子鼠标移动事件
     if (e.target.nodeName == 'LI') {
         textOptionsBox.style.display = 'block';
     } else {
@@ -239,10 +231,9 @@ textOptionsBox.addEventListener('mouseout', function () {
     textOptionsBox.style.display = 'none';
 })
 
-document.addEventListener('click', function () {
+document.addEventListener('click', function () {    // 文档点击事件
     textOptionsBox.style.display = 'none';
 })
-
 
 
 
