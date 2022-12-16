@@ -50,8 +50,8 @@ body {
 .bg {
     width: 100%;
     height: 100%;
-    /* background: url('../img/index.jpg') center center no-repeat; */
-    background: url('https://bing.img.run/uhd.php') center center no-repeat;
+    background: url('../img/index.jpg') center center no-repeat;
+    /* background: url('https://bing.img.run/uhd.php') center center no-repeat; */
     background-size: cover;
     z-index: -1;
     position: absolute;
@@ -86,14 +86,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 1s cubic-bezier(0.01, 0.03, 0, 0.6);
-    animation: tip 7s;
+    transition: transform 1s ease;
+    /* animation: tip 7s; */
     z-index: 2;
     pointer-events: none;
-}
-
-.tip:hover {
-    transform: translateY(60px) translateX(-50%);
 }
 
 .tip span {
@@ -396,4 +392,8 @@ body {
         transform: scale(1);
         transform-origin: top right
     }
+}
+
+input::placeholder {
+    color: #2c2c2c;
 }

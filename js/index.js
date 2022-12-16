@@ -101,35 +101,47 @@ showTime = function () {
     // console.log(timeText.innerText);
 }
 
-window.onload = function () {
-    tip()
-}
+// window.onload = function () {
+//     // tip('您的起始页目前是最新版')
+// }
 
 var tip_end = 0;
 function tip(self, stop) { // 小提示接口 说明：self为弹出的文字 stop为禁用的按钮等
     var tip = document.querySelector('.tip');
     tip.addEventListener('animationend', function () {
-        tip_end = 1;    // tip_end 等于1时说明动画结束
+        tip_end = 0;    // tip_end 等于0时说明动画结束
         // console.log('动画结束')
     })
     tip.addEventListener('transitionend', function () {
         setTimeout(function () {
-            tip_end = 1;
+            tip_end = 0;
         }, 3000)
         // console.log('动画结束')
     })
-    if (tip_end == 1) {
-        tip.style.transform = 'translateY(120px) translateX(-50%)';
-        var tipValue = document.querySelector('.tip').getElementsByTagName('span')[0];
-        tipValue.innerHTML = self;
-        stop.style.pointerEvents = 'none';
-        setTimeout(function () {
-            tip.style.transform = 'translateY(0px) translateX(-50%)';
-        }, 2000);
-        setTimeout(function () {
-            tip_end = 0;
-            stop.style.pointerEvents = 'all';
-        }, 3000)
+    if (Boolean(stop) != false) {   // 判断stop值是否为空 空返回false
+        // console.log('执行了')
+        if (tip_end == 0) {
+            tip_end = 1;
+            tip.style.transform = 'translateY(120px) translateX(-50%)';
+            var tipValue = document.querySelector('.tip').getElementsByTagName('span')[0];
+            tipValue.innerHTML = self;
+            stop.style.pointerEvents = 'none';
+            setTimeout(function () {
+                tip.style.transform = 'translateY(0px) translateX(-50%)';
+                setTimeout(function () {
+                    stop.style.pointerEvents = 'all';
+                }, 1000)
+            }, 2000);
+        }
+    } else {    // 当没有要禁用的按钮时触发
+        if (tip_end == 0) {
+            tip.style.transform = 'translateY(120px) translateX(-50%)';
+            var tipValue = document.querySelector('.tip').getElementsByTagName('span')[0];
+            tipValue.innerHTML = self;
+            setTimeout(function () {
+                tip.style.transform = 'translateY(0px) translateX(-50%)';
+            }, 2000);
+        }
     }
 }
 
@@ -145,23 +157,25 @@ var textP = document.querySelector('.text-p');
 
 var tipValue = document.querySelector('.tip').getElementsByTagName('span')[0];
 
-if (Boolean(str) == false) {
-    tipValue.innerHTML = '网络连接失败或api异常';
-} else {
-    if (getStr[0].length <= 20 && getStr[1].length <= 20) {
-        textP.innerText = '「 ' + getStr[0] + ' 」';
-        textName.innerText = '——' + getStr[1];
+setTimeout(function () {
+    if (Boolean(str) == false) {
+        // tipValue.innerHTML = '网络连接失败或api异常';
+        tip('网络连接失败或api异常')
+    } else {
+        if (getStr[0].length <= 20 && getStr[1].length <= 20) {
+            textP.innerText = '「 ' + getStr[0] + ' 」';
+            textName.innerText = '——' + getStr[1];
+        }
     }
-}
-
+}, 1000);
 
 
 var textOptions = document.querySelector('.text-options');  // 获取美文选项按钮
 
-text.ontouchstart = function () {
-    textName.style.display = 'block';
-    textOptions.style.display = 'block';
-}
+// text.ontouchstart = function () {
+//     textName.style.display = 'block';
+//     textOptions.style.display = 'block';
+// }
 
 text.onmousemove = function () {
     textName.style.display = 'block';
@@ -171,10 +185,10 @@ text.onmousemove = function () {
     textOptions.style.display = 'block';
 }
 
-text.ontouchend = function () {
-    textName.style.display = 'none';
-    textOptions.style.display = 'none';
-}
+// text.ontouchend = function () {
+//     textName.style.display = 'none';
+//     textOptions.style.display = 'none';
+// }
 
 text.onmouseout = function () {
     textName.style.display = 'none';
@@ -190,6 +204,15 @@ textOptions.addEventListener('click', function () {
     textOptionsBox.style.display = 'block';
 
 });
+
+var textOptionsBoxLi = document.querySelector('.text-options-box').getElementsByTagName('li')[0];
+textOptionsBoxLi.style.pointerEvents = 'none';
+
+
+setTimeout(function () {
+    textOptionsBoxLi.style.pointerEvents = 'all';
+}, 2000)
+
 
 textOptionsBox.addEventListener('click', function (e) {
     if (e.target.nodeName == 'LI') {
