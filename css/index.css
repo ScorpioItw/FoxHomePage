@@ -356,7 +356,7 @@ body {
 .text-options-box li:nth-child(1):before {
     content: '';
     display: inline-block;
-    background: url('../img/copy.png');
+    background: url('../img/copy.svg');
     background-size: cover;
     width: 15px;
     height: 15px;
@@ -369,7 +369,7 @@ body {
 .text-options-box li:nth-child(2):before {
     content: '';
     display: inline-block;
-    background: url('../img/sou.png');
+    background: url('../img/s.svg');
     background-size: cover;
     width: 15px;
     height: 15px;
