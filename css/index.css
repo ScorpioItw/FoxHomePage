@@ -335,7 +335,6 @@ body {
     border-radius: 5px;
     animation: text-options-box 0.4s;
     display: none;
-    display: block;
 }
 
 .text-options-box li {

@@ -227,8 +227,6 @@ textOptionsBox.addEventListener('click', function (e) {
     }
 })
 
-
-
 textOptionsBox.addEventListener('mouseover', function (e) {
     if (e.target.nodeName == 'LI') {
         textOptionsBox.style.display = 'block';
@@ -238,6 +236,10 @@ textOptionsBox.addEventListener('mouseover', function (e) {
 });
 
 textOptionsBox.addEventListener('mouseout', function () {
+    textOptionsBox.style.display = 'none';
+})
+
+document.addEventListener('click', function () {
     textOptionsBox.style.display = 'none';
 })
 
