@@ -176,7 +176,7 @@ var textOptions = document.querySelector('.text-options');  // 获取美文选�
 text.onmousemove = function () {
     textName.style.display = 'block';
     text.style.backgroundColor = 'rgb(255 255 255 / 20%)';
-    text.style.backdropFilter = 'blur(10px)';
+    text.style.backdropFilter = 'blur(5px)';
     text.style.transform = 'rotateX(-1deg) translateX(-50%)';
     textOptions.style.display = 'block';
 }
@@ -235,5 +235,20 @@ document.addEventListener('click', function () {    // 文档点击事件
     textOptionsBox.style.display = 'none';
 })
 
+var textStyle = document.querySelector('.text-style');
+textStyle.addEventListener('click', function (e) {  // 美文水波纹动画
 
+    console.log(e.target.offsetLeft);
+    let x = e.clientX - e.target.getBoundingClientRect().left;
+    let y = e.clientY - e.target.getBoundingClientRect().top;
+    console.log(x);
+
+    let ripples = this.getElementsByTagName('span')[0];
+    ripples.style.display = 'block';
+    console.log(ripples);
+    ripples.style.left = x + 'px';
+    ripples.style.top = y + 'px';
+
+    this.appendChild(ripples);
+})
 
