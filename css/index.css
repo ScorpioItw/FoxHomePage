@@ -335,6 +335,7 @@ body {
     border-radius: 5px;
     animation: text-options-box 0.4s;
     display: none;
+    display: block;
 }
 
 .text-options-box li {
@@ -353,11 +354,37 @@ body {
     border-radius: 5px;
 }
 
+.text-options-box li:nth-child(1):before {
+    content: '';
+    display: inline-block;
+    background: url('../img/copy.png');
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    /* background-color: red; */
+    position: relative;
+    top: 3px;
+    left: -2px;
+}
+
+.text-options-box li:nth-child(2):before {
+    content: '';
+    display: inline-block;
+    background: url('../img/sou.png');
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    /* background-color: red; */
+    position: relative;
+    top: 3px;
+    left: -2px;
+}
+
 .text-options-box li::after {
     content: '';
     display: inline-block;
     width: 100%;
-    height: 3px;
+    height: 1px;
     position: absolute;
     bottom: 2px;
     left: 0;
@@ -374,7 +401,6 @@ body {
 .text-options-box li:active::after {
     background-color: red;
 }
-
 
 
 .text-options-box li:hover {

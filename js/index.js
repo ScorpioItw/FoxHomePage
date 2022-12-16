@@ -217,10 +217,10 @@ setTimeout(function () {
 textOptionsBox.addEventListener('click', function (e) {
     if (e.target.nodeName == 'LI') {
         if (e.target.className == 'copy') {
-            textOptionsBox.style.display = 'none';
             var copyText = textP.innerText + textName.innerText;
             navigator.clipboard.writeText(copyText);
             tip('复制成功', e.target);
+            textOptionsBox.style.display = 'none';
         } else if (e.target.className == 'sou') {
             console.log('sou');
         }
